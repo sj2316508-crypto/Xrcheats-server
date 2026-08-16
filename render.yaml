@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: bypass-api
+    runtime: python
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 620 --workers 1
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: BYPASS_TIMEOUT
+        value: "420"
+      - key: SYNC_BUDGET
+        value: "20"
+      - key: BYPASS_RETRIES
+        value: "2"
+      - key: VPLINK_WAIT
+        value: "15"
+      - key: POLL_INTERVAL
+        value: "3"
+      - key: CACHE_TTL
+        value: "300"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      # Optional: set this to a residential HTTP proxy URL if the host IP is blocked.
+      - key: BYPASS_PROXY
+        sync: false
+      - key: BYPASS_PROXIES
+        sync: false

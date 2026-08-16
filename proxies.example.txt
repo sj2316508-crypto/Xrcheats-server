@@ -1,0 +1,4 @@
+# Copy this file to proxies.txt for local testing.
+# Never commit real proxy credentials.
+# One Webshare proxy per line:
+# host:port:username:password
