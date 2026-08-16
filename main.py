@@ -199,3 +199,12 @@ async def job_get(id: str = Query(...)):
 @app.get("/jobs")
 async def jobs_get():
     return {"jobs": [_payload(job_id) for job_id in list(JOBS)[-25:]]}
+
+
+# --- NEW ROUTE TO FIX 404 CONFIG ERROR ---
+@app.get("/hawkdev/ongetlogindesc.php/{name}/{v1}/{v2}/{v3}/{v4}")
+def get_login_desc(name: str, v1: str, v2: str, v3: str, v4: str):
+    return {
+        "verAddr": f"https://xrcheats-server.onrender.com/hawkdev/ongetlogindesc.php/{name}/{v1}/{v2}/{v3}/{v4}/"
+    }
+    
