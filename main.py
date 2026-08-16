@@ -202,9 +202,10 @@ async def jobs_get():
 
 
 # --- NEW ROUTE TO FIX 404 CONFIG ERROR ---
-@app.get("/hawkdev/ongetlogindesc.php/{name}/{v1}/{v2}/{v3}/{v4}")
+@app.get("/hawkdev/ongetlogindesc.php/{name}/{v1}/{v2}/{v3}/{v4}", trailing_slash=True)
+@app.get("/hawkdev/ongetlogindesc.php/{name}/{v1}/{v2}/{v3}/{v4}/")
 def get_login_desc(name: str, v1: str, v2: str, v3: str, v4: str):
     return {
         "verAddr": f"https://xrcheats-server.onrender.com/hawkdev/ongetlogindesc.php/{name}/{v1}/{v2}/{v3}/{v4}/"
     }
-    
+
